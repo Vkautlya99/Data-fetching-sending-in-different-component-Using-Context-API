@@ -1,18 +1,19 @@
 'use client'
 import axios from 'axios'
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
 
 const page = () => {
   const [Users, setUsers] = useState([]);
-  
+
   const userData = async () => {
     const { data } = await axios.get("https://jsonplaceholder.typicode.com/users");
-    setUsers(data);
+    setUsers(data)
+    // console.log(data)
   }
 
-
-
+  useEffect(() => {
+    userData()
+  }, []);
 
   return (
     <>
@@ -22,13 +23,13 @@ const page = () => {
       <div className='w-full bg-slate-400 rounded p-7 mt-3'>
         <ul>
           {Users.map((e) => {
-            return <li>{e.name} ---------- <a href="">Explore</a></li>
+            return <li>{e.name} ---------- <a href={`/${e.id}`}>Explore</a></li>
           })}
         </ul>
       </div>
-    
+
     </>
   )
 }
 
-export default page
+export default page;
