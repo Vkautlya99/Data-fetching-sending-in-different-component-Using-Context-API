@@ -1,14 +1,14 @@
+import { MyContext } from '@/context/Context'
 import React from 'react'
-import Nav from './Nav'
+import { useContext } from 'react'
 
-const Header = (props) => {
-    
-  
+const Header = () => {
+
+    const user = useContext(MyContext)
   return (
-    <div className='bg-green-300 p-5'>
-      This is Header Component
-          <Nav num={props.num } />
-      </div>
+    <div className='bg-green-300 p-6'>
+      {user}
+    </div>
   )
 }
 

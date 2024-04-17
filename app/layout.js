@@ -1,4 +1,5 @@
 
+import MyContext  from "@/context/Context";
 import "./globals.css";
 
 
@@ -13,8 +14,10 @@ export default function RootLayout({ children }) {
     <html>
       <body suppressHydrationWarning>
 
-        
+        <MyContext>
         {children}
+
+        </MyContext>
         
       </body>
     </html>
